@@ -1,3 +1,0 @@
-C:\Program1\msys64\mingw64\bin\cmake.exe -E rm -f CMakeFiles\qt-spike.dir/objects.a
-C:\Program1\msys64\mingw64\bin\ar.exe qc CMakeFiles\qt-spike.dir/objects.a @CMakeFiles\qt-spike.dir\objects1.rsp
-C:\Program1\msys64\mingw64\bin\c++.exe -Wl,--whole-archive CMakeFiles\qt-spike.dir/objects.a -Wl,--no-whole-archive -o qt-spike.exe -Wl,--out-implib,libqt-spike.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\qt-spike.dir\linkLibs.rsp

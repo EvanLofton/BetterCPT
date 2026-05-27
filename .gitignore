@@ -5,7 +5,23 @@ host/target/
 # CMake / Qt
 widget-qt/build/
 widget-qt/build-*/
+experiments/qt-spike/build/
 *.autogen
+
+# Generated / Tauri
+host/frontend/
+host/gen/
+
+# Build artifacts
+host/redist/MicrosoftEdgeWebview2Setup.exe
+*.exe
+*.obj
+*.bin
+*.a
+*.d
+
+# Temp files
+**/test_cmd.txt
 
 # Node / Frontend
 dashboard/node_modules/
