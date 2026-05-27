@@ -1,0 +1,93 @@
+/* 本地字体 — @import 必须在 @tailwind 之前 */
+@import 'material-symbols/outlined.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/900.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/manrope/400.css';
+@import '@fontsource/manrope/500.css';
+@import '@fontsource/manrope/600.css';
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/manrope/800.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====== 浅色主题 ====== */
+:root {
+  --color-panel-rgb: 242 245 243;
+  --color-primary-rgb: 0 108 74;
+  --color-on-primary-rgb: 255 255 255;
+  --color-primary-container-rgb: 78 222 163;
+  --color-on-primary-container-rgb: 0 95 64;
+  --color-secondary-rgb: 76 100 87;
+  --color-secondary-container-rgb: 206 233 216;
+  --color-on-secondary-container-rgb: 82 106 92;
+  --color-surface-rgb: 248 250 246;
+  --color-on-surface-rgb: 25 28 26;
+  --color-surface-variant-rgb: 225 227 223;
+  --color-on-surface-variant-rgb: 60 74 66;
+  --color-surface-container-lowest-rgb: 255 255 255;
+  --color-surface-container-low-rgb: 242 244 240;
+  --color-surface-container-rgb: 236 238 235;
+  --color-surface-container-high-rgb: 231 233 229;
+  --color-background-rgb: 248 250 246;
+  --color-on-background-rgb: 25 28 26;
+  --color-outline-rgb: 108 122 113;
+  --color-outline-variant-rgb: 187 202 192;
+  --color-error-rgb: 186 26 26;
+  --color-error-container-rgb: 255 218 214;
+  --color-status-error-rgb: 239 68 68;
+  --color-status-warning-rgb: 245 158 11;
+  --color-status-success-rgb: 16 185 129;
+}
+
+/* ====== 深色主题 ====== */
+.dark {
+  --color-panel-rgb: 24 26 24;
+  --color-primary-rgb: 78 222 163;
+  --color-on-primary-rgb: 0 56 36;
+  --color-primary-container-rgb: 0 81 59;
+  --color-on-primary-container-rgb: 111 251 190;
+  --color-secondary-rgb: 178 205 189;
+  --color-secondary-container-rgb: 52 76 65;
+  --color-on-secondary-container-rgb: 206 233 216;
+  --color-surface-rgb: 36 38 36;
+  --color-on-surface-rgb: 225 227 223;
+  --color-surface-variant-rgb: 44 46 44;
+  --color-on-surface-variant-rgb: 195 200 191;
+  --color-surface-container-lowest-rgb: 30 32 30;
+  --color-surface-container-low-rgb: 36 38 36;
+  --color-surface-container-rgb: 42 44 42;
+  --color-surface-container-high-rgb: 48 50 48;
+  --color-background-rgb: 18 20 18;
+  --color-on-background-rgb: 225 227 223;
+  --color-outline-rgb: 150 153 148;
+  --color-outline-variant-rgb: 128 128 128;
+  --color-error-rgb: 255 180 171;
+  --color-error-container-rgb: 147 0 10;
+  --color-status-error-rgb: 255 154 148;
+  --color-status-warning-rgb: 253 186 57;
+  --color-status-success-rgb: 52 211 153;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.material-symbols-outlined {
+  font-display: swap;
+}
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #bbcac0; border-radius: 1.5px; }
+
+/* Toast 动画 */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.animate-fade-in-up { animation: fadeInUp 0.4s ease-out forwards; }
+.animate-slide-in-right { animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }

@@ -1,0 +1,2 @@
+@echo off
+"C:\Program Files (x86)\NSIS\makensis.exe" /INPUTCHARSET UTF8 "%~dp0installer.nsi"

@@ -1,0 +1,10 @@
+{
+  "id": "@bettercpt/dock",
+  "name": "Dock",
+  "version": "0.1.0",
+  "runtime": "widget",
+  "capabilities": ["widget:overlay"],
+  "permissions": ["storage"],
+  "entry": "index.js",
+  "engine": ">=0.1.0"
+}

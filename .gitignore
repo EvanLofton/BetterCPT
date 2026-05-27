@@ -1,0 +1,39 @@
+# Rust
+host/target/
+**/*.rs.bk
+
+# CMake / Qt
+widget-qt/build/
+widget-qt/build-*/
+*.autogen
+
+# Node / Frontend
+dashboard/node_modules/
+dashboard/dist/
+host/frontend/assets/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Claude config (private)
+.claude/
+
+# Working files
+UI原型图.png
+图标.png
+软件图.png
+
+# Sensitive
+.env
+*.pem

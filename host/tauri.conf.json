@@ -1,0 +1,34 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicedoc/tauri-tauri-conf/refs/heads/main/schema.json",
+  "productName": "BetterCPT",
+  "version": "0.1.0",
+  "identifier": "com.bettercpt.host",
+  "build": {
+    "frontendDist": "frontend"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "nsis",
+    "icon": [
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../widget-qt/build/widget-qt.exe": "widget-qt.exe",
+      "../widget-qt/build/*.dll": "./",
+      "../plugins/**/*": "plugins/"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "both",
+        "languages": ["SimpChinese", "English"]
+      }
+    }
+  }
+}
