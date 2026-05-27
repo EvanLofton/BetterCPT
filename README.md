@@ -39,52 +39,78 @@
 
 ##   截图详解
 
+###   启动加载 — 第一眼就是品质
+
 <div align="center">
-
-<table>
-<tr>
-<td align="center" width="50%">
-  <b>  启动加载</b><br><br>
-  <img src="screenshots/loading.png" alt="启动页" width="90%" /><br><br>
-  <sub>
-    <b>特点：</b>  品牌化启动画面 ·   毛玻璃背景 ·   进度条动画 ·   版本号展示<br>
-    从点开软件的第一秒，就是精心设计的体验
-  </sub>
-</td>
-<td align="center" width="50%">
-  <b>  Dashboard 管理后台</b><br><br>
-  <img src="screenshots/软件主页面.png" alt="Dashboard" width="90%" /><br><br>
-  <sub>
-    <b>特点：</b>   插件一键安装 / 启动 / 停止 / 卸载 ·   实时状态监控<br>
-      崩溃次数追踪 ·    深色 / 浅色主题 ·    系统托盘常驻<br>
-    Tauri v2 + React — 所有操作由 Rust Host 直接响应，不跨进程
-  </sub>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-  <b>  Dock 插件实战</b><br><br>
-  <img src="screenshots/dock插件主页面.png" alt="Dock" width="90%" /><br><br>
-  <sub>
-    <b>特点：</b>   拖放 .exe / .lnk → 自动解析提取图标<br>
-      悬停放大动画（setScale + OutBack 缓动） ·    点击启动应用<br>
-      图标色彩自动分配 ·    多图标水平排列 ·    穿透非图标区域<br>
-    用纯 JS 写的 macOS 风格 Dock — 这就是 BetterCPT 的插件能力
-  </sub>
-</td>
-<td align="center" width="50%">
-  <b>  插件市场</b><br><br>
-  <img src="screenshots/插件市场.png" alt="插件市场" width="90%" /><br><br>
-  <sub>
-    <b>特点：</b>   分类浏览 ·   搜索筛选 ·   插件卡片展示<br>
-    版本 / 作者 / 下载量一目了然 ·   一键安装到本地<br>
-    v1 为 Demo 数据 — v2 正式开放社区生态
-  </sub>
-</td>
-</tr>
-</table>
-
+  <img src="screenshots/loading.png" alt="启动加载" width="70%" />
 </div>
+
+>   **品牌化启动体验**：BetterCPT 大字渐显 +   旋转图标 +   绿色进度条匀速滑动 + v1.0.0 版本号标注。加载页不是占位符，是产品设计的第一印象。
+
+|   | 亮点 |
+|---|------|
+|   | 毛玻璃风格背景，Material Icons 浮动装饰 |
+|   | 字母逐字淡入动画，品牌感拉满 |
+|   | 进度条 `left` 动画从左侧外侧滑到右侧外侧，无跳帧 |
+|   | 加载完成后淡出 → 通知 Host 插件就绪 → 无缝衔接 |
+
+---
+
+###   Dashboard 管理后台 — 插件指挥中心
+
+<div align="center">
+  <img src="screenshots/软件主页面.png" alt="Dashboard 管理后台" width="80%" />
+</div>
+
+>   **一站式插件管理**：左侧导航栏（首页 / 插件管理 / 插件市场 / 崩溃日志 / 设置），右侧主内容区。Tauri v2 + React，所有操作由 Rust Host 直接响应，不走跨进程通信。
+
+|   | 功能亮点 |
+|---|------|
+|   | 统计卡片：已安装插件数 / 运行中 / 崩溃次数 / 总内存占用 |
+|   | 插件列表表：图标 + 名称 + 状态（运行中 / 已停止 / 已崩溃）+ 操作按钮 |
+|   |   实时状态推送（`runtime_event`），不轮询 |
+|   |   深色 / 浅色主题切换，CSS 变量驱动全局色板 |
+|   |   系统托盘常驻，关闭窗口不退出程序 |
+|   |   拖放 .bcpkg 文件即可安装插件 |
+
+---
+
+###   Dock 插件 — 桌面上的启动器
+
+<div align="center">
+  <img src="screenshots/dock插件主页面.png" alt="Dock 插件" width="80%" />
+</div>
+
+>   **macOS 风格的 Dock 栏，纯 JavaScript 实现**。拖一个 .exe 或 .lnk 文件上去 → 自动解析路径、提取图标、分配色彩 → 悬停放大 → 点击启动。这个插件本身就在展示 BetterCPT 的 SDK 能力上限。
+
+|   | 功能亮点 |
+|---|------|
+|   |   拖放 .exe / .lnk → `IShellLink` COM 解析 → `QFileIconProvider` 提取图标 |
+|   |   悬停 `setScale(1.1, 150)` + `OutBack` 缓动 → 图标弹性放大 |
+|   |   离开恢复 `setScale(1.0, 150)` → 丝滑缩小 |
+|   |   点击 `ShellExecuteW` 启动应用，.lnk 透明处理 |
+|   |   图标色彩从 10 色调色板自动轮换 |
+|   |   最多 12 个图标，水平排列，超出不追加 |
+|   |   非图标区域鼠标穿透到桌面 |
+|   |   通过 Dashboard 配置图标大小 / 间距 / 背景色 |
+
+---
+
+###   插件市场 — 生态起点
+
+<div align="center">
+  <img src="screenshots/插件市场.png" alt="插件市场" width="80%" />
+</div>
+
+>   分类浏览 · 搜索筛选 · 插件卡片（名称 / 作者 / 版本 / 下载量 / 评分）。v1 为 Demo 预览 — v2 正式开放社区生态，支持 .bcpkg 远程下载和自动更新。
+
+|   | 功能亮点 |
+|---|------|
+|   | 卡片式布局，每个插件独立展示 |
+|   | 分类筛选（全部 / Widget / Script / 热门） |
+|   | 搜索框实时过滤 |
+|   | 插件详情页：描述 / 版本 / 作者 / 权限声明 |
+|   | v2 接入真实后端后，一键安装到本地 |
 
 ---
 
@@ -105,7 +131,7 @@
 |---|------|---|------|
 |   | 想写桌面应用要学 C++ / Qt |   | `createRect({...})` 三行代码出界面 |
 |   | 渲染性能难优化 |   | Qt 6.5 GPU 加速，你只管逻辑 |
-|   | 插件分发困难 |   | .bcpkg 打包 → 拖到 Dashboard → 安装 |
+|   | 插件分发困难 |   | `.bcpkg` 打包 → 拖到 Dashboard → 安装 |
 |   | TypeScript 还不行？ |   | v1 纯 JS，Phase 5 支持 TS + SWC |
 
 ---
@@ -164,20 +190,22 @@ Isolate A            Isolate B            Isolate C
 
 ```javascript
 //   my-widget/index.js
-var clock = createText("00:00", { size: 48, weight: "bold", color: "#fff" });
+var card = createRect({
+  width: 200, height: 120,
+  x: 100, y: 100,
+  radius: 16,
+  color: "rgba(30, 30, 30, 0.85)"
+});
 
-setInterval(function () {
-  var now = new Date();
-  var time = now.getHours().toString().padStart(2, "0") + ":" +
-             now.getMinutes().toString().padStart(2, "0");
-  // v1 暂不支持 setInterval，Phase 5 加入
-}, 1000);
+card.onClick(function () {
+  system.launch("calc.exe"); //  点击启动计算器
+});
 ```
 
 ```json
 //   my-widget/manifest.json
 {
-  "id": "@local/digital-clock",
+  "id": "@local/my-widget",
   "runtime": "widget",
   "capabilities": ["widget:overlay"],
   "permissions": ["storage"],
